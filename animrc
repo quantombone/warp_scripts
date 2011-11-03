@@ -37,13 +37,13 @@ hardstatus alwayslastline "%{= kR} %-Lw%{=b Ky} %n%f %t %{-}%+Lw %=%{= dd}"
 sessionname ${CLUSTY_SESSION_NAME}
 
 #dump logs to a url
-logfile /afs/cs.cmu.edu/user/tmalisie/www/screenlogs/mylog.%n.txt
+#logfile /afs/cs.cmu.edu/user/tmalisie/www/screenlogs/mylog.%n.txt
 
 #a new title for default SHELL windows
 shelltitle SHELL
 
 #start the screen virtual term that lets the logger utility run
-screen -fn -t T 0 ./toucher.sh
+#screen -fn -t T 0 ./toucher.sh
 
 #now detach here
 detach
