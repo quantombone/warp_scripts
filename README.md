@@ -30,6 +30,11 @@ to check jobs:
 
 You can also invoke a parallel job using sc.sh, which will launch a special [GNU screen](http://www.gnu.org/s/screen/) session where each tab will be SSH-ed into a single machine.  Please note that this is for old-style SSH-based clusters, not ones based on torque.  If you run sc.sh on a cluster such as CMU's warp people will be unhappy.  If I was an admin, I would probably ban you.
 
+First set up a list of machines you can SSH into which into
+
+    cp machine_list.sh-example machine_list.sh
+    nano machine_list.sh
+
 To start a job:
 
     ./sc.sh JOB_NAME
