@@ -1,1 +1,4 @@
+#NOTE: This file must be edited with your own list of machines and 
+#copied to machine_list.sh and is mean to work with sc.sh
+
 MACHINELIST='computer1.mit.edu computer2.cmu.edu computer3.rpi.edu'
