@@ -3,11 +3,15 @@ Here are my WARP scripts.  WARP is CMU's cluster owned by the Graphics Group -- 
 To check the status of the WARP you must be on CMU's network and you can go to the webpage:
 http://warp.hpc1.cs.cmu.edu/wordpress/
 
-To log into warp you need to ssh into warp.hpc1.cs.cmu.edu (please see the Graphics group at CMU first)
+To log into warp, you need to ssh into warp.hpc1.cs.cmu.edu (please see the Graphics group at CMU first)
 
 First edit your home directory which the script automatically cd's into:
 
     nano warp_driver.sh
+    
+Next make sure the LOGDIR is set to something reasonable (perhaps you're not on CMU's lustre)
+
+    nano warp_starter.sh
 
 To start a job:
 
