@@ -5,7 +5,9 @@ http://warp.hpc1.cs.cmu.edu/wordpress/
 
 To log into warp you need to ssh into warp.hpc1.cs.cmu.edu (please see the Graphics group at CMU first)
 
-The main scripts are:
+First edit your home directory which the script automatically cd's into:
+
+    nano warp_driver.sh
 
 To start a job:
 
