@@ -37,13 +37,16 @@ if [ $ALREADY_RUNNING = "1" ]; then
     exit;
 fi
 
-#echo 'Clearing Out Log Files'
-#rm /afs/cs.cmu.edu/user/${USER}/www/screenlogs/mylog*
+#create the directory
+export CLUSTY_LOGDIR=/afs/csail.mit.edu/u/t/tomasz/public_html/screenlogs/
+
+echo 'Clearing Out Log Files'
+rm ${CLUSTY_LOGDIR}/mylog*
 
 ## START THE DRIVER SCREEN SESSION ###
 screen -L -c animrc  
 
-#here we run uncompiled matlabs
+#The process string calls a matlab and tries to execute some command in a try catch block, this command is passed on the command line
 export PROCESS_STRING="(/afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,${PROC};,catch,disp('Error with script');end;exit(1);\")"
 
 #STARTID is a temporary counter variable
@@ -60,10 +63,10 @@ do
   # a short sleep is critical to let screen re-adjust its socks
   sleep .4
 
-  screen -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
+  screen -L -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
   
   #Be verbose -- it is good for the soul
-  echo screen -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
+  echo screen -L -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
   
   STARTID=`expr $STARTID + 1`
 done

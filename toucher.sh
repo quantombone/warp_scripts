@@ -14,16 +14,19 @@ SHOWLAST=20
 #Wait this many seconds before re-generating output
 REFRESH_TIME=20
 
+export CLUSTY_LOGDIR=/afs/csail.mit.edu/u/t/tomasz/public_html/screenlogs/
+#LOGDIR=~/public_html/screenlogs/
+
 #Output html page
-RESFILE=/afs/cs.cmu.edu/user/tmalisie/www/screenlogs/index.html
+RESFILE=${CLUSTY_LOGDIR}/index.html
 
 sleep 1
 
 while [ 1 -gt 0 ]; do
     echo "updating log at `date`"
     
-    files=`find /afs/cs.cmu.edu/user/tmalisie/www/screenlogs/ -name "mylog*"`
-    touch /afs/cs.cmu.edu/user/tmalisie/www/screenlogs/*
+    files=`find ${CLUSTY_LOGDIR}/ -name "mylog*"`
+    #touch ${CLUSTY_LOGDIR}/*
 
     echo "<html><head><title>SEG log</title></head><body>" > $RESFILE
     echo "<table border=2 align=top>" >> $RESFILE
