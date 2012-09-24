@@ -25,10 +25,10 @@ else
 fi
 
 #create a name for our driver screen session
-export CLUSTY_SESSION_NAME=anim_manage
+export CLUSTY_SESSION_NAME=cluster_manage
 
 #determine if the driver session is already running
-export ALREADY_RUNNING=`screen -list | grep anim_manage | wc -l`
+export ALREADY_RUNNING=`screen -list | grep cluster_manage | wc -l`
 
 if [ $ALREADY_RUNNING = "1" ]; then
     echo "Cannot Continue: SCREEN called $CLUSTY_SESSION_NAME is running."
@@ -47,7 +47,8 @@ rm ${CLUSTY_LOGDIR}/mylog*
 screen -L -c animrc  
 
 #The process string calls a matlab and tries to execute some command in a try catch block, this command is passed on the command line
-export PROCESS_STRING="(/afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,${PROC};,catch,disp('Error with script');end;exit(1);\")"
+#export PROCESS_STRING="(/afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,cd ~/exemplarsvm/; addpath(genpath(pwd)); ${PROC};,catch,disp('Error with script');end;exit(1);\")"
+export PROCESS_STRING="(~/linux-jedi-files/bin/mytop 400 && /afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,cd /csail/vision-torralba6/people/tomasz/icp_kinect; addpath(genpath(pwd)); ${PROC};,catch,disp('Error with script');end;exit(1);\")"
 
 #STARTID is a temporary counter variable
 STARTID='1'
@@ -61,12 +62,12 @@ do
 
   #echo Initializing Virtual Terminal $ind
   # a short sleep is critical to let screen re-adjust its socks
-  sleep .4
+  sleep .7
 
-  screen -L -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
+  screen -L -S $CLUSTY_SESSION_NAME -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
   
   #Be verbose -- it is good for the soul
-  echo screen -L -S anim_manage -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
+  echo screen -L -S $CLUSTY_SESSION_NAME -X screen -fn -t A:${ind} $STARTID $SSH_STRING $PROCESS_STRING
   
   STARTID=`expr $STARTID + 1`
 done
