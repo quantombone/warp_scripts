@@ -21,12 +21,11 @@
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-
-#change emacs conflict key to C-o instead of C-a which will simplify life
+#change emacs conflict key to C-u instead of C-a which will simplify life
 escape ^Oo
 
 #this is the second to last status line that shows info about host
-caption always "C-o %?%F%{= Wr}%:%{=u kR} %?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}"
+caption always "C-o %?%F%{= Gk}%:%{=u kR} %?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}"
 
 #hardstatus is the bottom-most line that has tabs on it .. it changes
 #when we switch tabbs
@@ -38,7 +37,6 @@ sessionname ${CLUSTY_SESSION_NAME}
 
 #dump logs to a url
 logfile ${CLUSTY_LOGDIR}/mylog.%n.txt
-#logfile ~/public_html/screenlogs/mylog.%n.txt
 
 #a new title for default SHELL windows
 shelltitle SHELL
