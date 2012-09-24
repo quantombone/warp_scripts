@@ -48,7 +48,7 @@ screen -L -c animrc
 
 #The process string calls a matlab and tries to execute some command in a try catch block, this command is passed on the command line
 #export PROCESS_STRING="(/afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,cd ~/exemplarsvm/; addpath(genpath(pwd)); ${PROC};,catch,disp('Error with script');end;exit(1);\")"
-export PROCESS_STRING="(~/linux-jedi-files/bin/mytop 400 && /afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,cd /csail/vision-torralba6/people/tomasz/icp_kinect; addpath(genpath(pwd)); ${PROC};,catch,disp('Error with script');end;exit(1);\")"
+export PROCESS_STRING="(~/linux-jedi-files/bin/mytop 400 && /afs/csail.mit.edu/system/amd64_linux26/matlab/latest/bin/matlab -nodesktop -nosplash -r \"try,cd /csail/vision-torralba6/people/tomasz/icp_kinect; addpath(genpath(pwd)); ${PROC};,catch,disp('Error with script');end;matlabpool close; exit(1);\")"
 
 #STARTID is a temporary counter variable
 STARTID='1'
