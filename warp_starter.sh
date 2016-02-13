@@ -12,8 +12,6 @@
 # $Author: tmalisie $
 # $Revision: 1.4 $
 
-# DO NOT DISTRIBUTE OR I WILL FIND YOU
-
 if [ ! -n "$1" ]
     then
     echo "Usage: " $0 " script_to_run REPEAT=1 PPN=2"

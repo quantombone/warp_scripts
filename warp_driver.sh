@@ -5,7 +5,6 @@
 # THIS IS A DRIVER THAT SHOULD ONLY BE CALLED FROM warp_starter.sh
 # DO NOT CALL THIS SCRIPT DIRECTLY!!!
 
-# DO NOT DISTRIBUTE OR I WILL FIND YOU
 # $Id: warp_driver.sh,v 1.4 2009/04/06 23:06:18 tmalisie Exp $
 # $Date: 2009/04/06 23:06:18 $
 # $Author: tmalisie $

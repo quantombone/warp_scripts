@@ -12,7 +12,6 @@
 # $Author: tmalisie $
 # $Revision: 1.2 $
 
-# DO NOT DISTRIBUTE OR I WILL FIND YOU
 if [ ! -n "$1" ]
     then
     echo "Usage: " $0 " job_to_kill"
